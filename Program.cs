@@ -30,7 +30,23 @@ while (option == "1" || option == "2")
 
     if (option == "2")
     {
-        
+        Console.WriteLine("How many movies would you like to add: ");
+        int numMovies = Convert.ToInt32(Console.ReadLine());
+        List<string> newMovies = new List<string>();
+
+        for (int i = 0; i < numMovies; i++)
+        {
+            Console.Write("Movie ID: ");
+            string id = Console.ReadLine();
+            Console.Write("Movie Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Genre: ");
+            string genre = Console.ReadLine();
+            var newLine = string.Format("{0}, {1}, {2}", id, name, genre);
+            newMovies.Add(newLine);
+        }
+
+        File.AppendAllLines("movies.csv", newMovies);
     }
 }
 
