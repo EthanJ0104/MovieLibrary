@@ -30,8 +30,16 @@ while (option == "1" || option == "2")
 
     if (option == "2")
     {
-        Console.WriteLine("How many movies would you like to add: ");
-        int numMovies = Convert.ToInt32(Console.ReadLine());
+        int numMovies = 0;
+        Console.Write("How many movies would you like to add: ");
+        try
+        {
+            numMovies = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+            Console.WriteLine("Invalid input.");
+        }
         List<string> newMovies = new List<string>();
 
         for (int i = 0; i < numMovies; i++)
